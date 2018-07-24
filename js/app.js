@@ -1,13 +1,13 @@
 // Enemies our player must avoid
 class Enemy {
-    constructor(sprite) {
+    constructor(speed) {
         // Variables applied to each of our instances go here,
         // we've provided one for you to get started
 
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
-        this.sprite = sprite;
-        // 'images/enemy-bug.png';
+        this.sprite = 'images/enemy-bug.png';
+        this.speed = speed;
     }
 
     // Update the enemy's position, required method for game
@@ -42,16 +42,33 @@ class Player {
     }
 
     handleInput(input) {
-        
+        switch(input) {
+            case 37:
+                console.log('left');
+                break;
+            case 38:
+                console.log('up');
+                break;
+            case 39:
+                console.log('right');
+                break;
+            case 40:
+                console.log('down');
+                break;
+        }
     }
 }
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+// Place the player object in a variable called player\
+let allEnemies = [];
+let player = new Player;
 
-
+// Sample enemy
+let enemy = new Enemy;
+enemy.render(enemy.sprite, 0, 100);
 
 
 // This listens for key presses and sends the keys to your
