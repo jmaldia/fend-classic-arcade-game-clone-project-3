@@ -4,3 +4,4 @@ yarn.lock
 package-lock.json
 app-es6.js
 app-old.js
+.gitignore
