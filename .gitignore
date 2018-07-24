@@ -1,6 +1,6 @@
-node_modules
+node_modules/
 package.json
 yarn.lock
 package-lock.json
-./js/app-es6.js
-./js/app-old.js
+app-es6.js
+app-old.js
