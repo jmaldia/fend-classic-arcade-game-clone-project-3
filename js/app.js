@@ -18,6 +18,10 @@ var Enemy = function () {
         this.x = x;
         this.y = y;
         this.speed = speed;
+
+        // Variable to add/deduct by moving left/right or up/down
+        this.horizontal = 100;
+        this.vertical = 85;
     }
 
     // Update the enemy's position, required method for game
@@ -56,7 +60,7 @@ var Player = function () {
 
         this.sprite = 'images/char-boy.png';
         this.x = 200;
-        this.y = 400;
+        this.y = 405;
     }
 
     _createClass(Player, [{
@@ -73,15 +77,19 @@ var Player = function () {
             switch (input) {
                 case 'left':
                     console.log('left');
+                    this.x -= this.horizontal;
                     break;
                 case 'up':
                     console.log('up');
+                    this.y -= this.vertical;
                     break;
                 case 'right':
                     console.log('right');
+                    this.x += this.horizontal;
                     break;
                 case 'down':
                     console.log('down');
+                    this.y += this.vertical;
                     break;
             }
         }
