@@ -37,6 +37,7 @@ var Enemy = function () {
     }, {
         key: 'render',
         value: function render() {
+            console.log('test');
             ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
         }
     }]);
@@ -52,6 +53,10 @@ var Enemy = function () {
 var Player = function () {
     function Player() {
         _classCallCheck(this, Player);
+
+        this.sprite = 'images/char-boy.png';
+        this.x = 200;
+        this.y = 400;
     }
 
     _createClass(Player, [{
@@ -59,21 +64,23 @@ var Player = function () {
         value: function update(dt) {}
     }, {
         key: 'render',
-        value: function render() {}
+        value: function render() {
+            ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        }
     }, {
         key: 'handleInput',
         value: function handleInput(input) {
             switch (input) {
-                case 37:
+                case 'left':
                     console.log('left');
                     break;
-                case 38:
+                case 'up':
                     console.log('up');
                     break;
-                case 39:
+                case 'right':
                     console.log('right');
                     break;
-                case 40:
+                case 'down':
                     console.log('down');
                     break;
             }
@@ -85,15 +92,14 @@ var Player = function () {
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player\
+// Place the player object in a variable called player
 
 
-var allEnemies = [];
 var player = new Player();
-
-// Sample enemy
-var enemy = new Enemy();
-enemy.render();
+var enemyOne = new Enemy(75, 0, 60);
+var enemyTwo = new Enemy(150, 0, 145);
+var enemyThree = new Enemy(250, 0, 230);
+var allEnemies = [enemyOne, enemyTwo, enemyThree];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.

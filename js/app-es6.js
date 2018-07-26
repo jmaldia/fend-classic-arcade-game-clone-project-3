@@ -22,6 +22,7 @@ class Enemy {
 
     // Draw the enemy on the screen, required method for game
     render() {
+        console.log('test');
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 }
@@ -32,7 +33,9 @@ class Enemy {
 // a handleInput() method.
 class Player {
     constructor() {
-
+        this.sprite='images/char-boy.png';
+        this.x = 200;
+        this.y = 400;
     }
 
     update(dt) {
@@ -40,21 +43,21 @@ class Player {
     }
 
     render() {
-        
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
     handleInput(input) {
         switch(input) {
-            case 37:
+            case 'left':
                 console.log('left');
                 break;
-            case 38:
+            case 'up':
                 console.log('up');
                 break;
-            case 39:
+            case 'right':
                 console.log('right');
                 break;
-            case 40:
+            case 'down':
                 console.log('down');
                 break;
         }
@@ -64,13 +67,12 @@ class Player {
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player\
-let allEnemies = [];
-let player = new Player;
-
-// Sample enemy
-let enemy = new Enemy;
-enemy.render();
+// Place the player object in a variable called player
+let player = new Player();
+let enemyOne = new Enemy(75, 0, 60);
+let enemyTwo = new Enemy(150, 0, 145);
+let enemyThree = new Enemy(250, 0, 230);
+let allEnemies = [enemyOne, enemyTwo, enemyThree];
 
 
 // This listens for key presses and sends the keys to your
