@@ -18,10 +18,6 @@ var Enemy = function () {
         this.x = x;
         this.y = y;
         this.speed = speed;
-
-        // Variable to add/deduct by moving left/right or up/down
-        this.horizontal = 100;
-        this.vertical = 85;
     }
 
     // Update the enemy's position, required method for game
@@ -61,11 +57,28 @@ var Player = function () {
         this.sprite = 'images/char-boy.png';
         this.x = 200;
         this.y = 405;
+
+        // Variable to add/deduct by moving left/right or up/down
+        this.horizontal = 101;
+        this.vertical = 83;
     }
 
     _createClass(Player, [{
         key: 'update',
-        value: function update(dt) {}
+        value: function update() {
+            // Go back to initial position when the player reaches the water
+            // TODO: Need work
+            if (this.x <= -20) {
+                this.reset();
+                this.render();
+            }
+        }
+    }, {
+        key: 'reset',
+        value: function reset() {
+            this.x = 200;
+            this.y = 405;
+        }
     }, {
         key: 'render',
         value: function render() {
@@ -76,20 +89,24 @@ var Player = function () {
         value: function handleInput(input) {
             switch (input) {
                 case 'left':
-                    console.log('left');
-                    this.x -= this.horizontal;
+                    if (this.x > 0) {
+                        this.x -= this.horizontal;
+                    }
                     break;
                 case 'up':
-                    console.log('up');
-                    this.y -= this.vertical;
+                    if (this.y > 0) {
+                        this.y -= this.vertical;
+                    }
                     break;
                 case 'right':
-                    console.log('right');
-                    this.x += this.horizontal;
+                    if (this.x < 350) {
+                        this.x += this.horizontal;
+                    }
                     break;
                 case 'down':
-                    console.log('down');
-                    this.y += this.vertical;
+                    if (this.y < 400) {
+                        this.y += this.vertical;
+                    }
                     break;
             }
         }

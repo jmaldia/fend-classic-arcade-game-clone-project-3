@@ -10,10 +10,6 @@ class Enemy {
         this.x = x;
         this.y = y;
         this.speed = speed;
-
-        // Variable to add/deduct by moving left/right or up/down
-        this.horizontal = 100;
-        this.vertical = 85;
     }
 
     // Update the enemy's position, required method for game
@@ -40,10 +36,25 @@ class Player {
         this.sprite='images/char-boy.png';
         this.x = 200;
         this.y = 405;
+        
+        // Variable to add/deduct by moving left/right or up/down
+        this.horizontal = 101;
+        this.vertical = 83;
     }
 
-    update(dt) {
+    update() {
+        // Go back to initial position when the player reaches the water
+        // TODO: Need work
+        if (this.x <= -20) {
+            this.reset();
+            this.render();
+        }
+        
+    }
 
+    reset() {
+        this.x = 200;
+        this.y = 405;
     }
 
     render() {
@@ -53,20 +64,16 @@ class Player {
     handleInput(input) {
         switch(input) {
             case 'left':
-                console.log('left');
-                this.x -= this.horizontal;
+                if (this.x > 0) { this.x -= this.horizontal; }
                 break;
             case 'up':
-                console.log('up');
-                this.y -= this.vertical;
+                if (this.y > 0) { this.y -= this.vertical; }
                 break;
             case 'right':
-                console.log('right');
-                this.x += this.horizontal;
+                if (this.x < 350) { this.x += this.horizontal; }
                 break;
             case 'down':
-                console.log('down');
-                this.y += this.vertical;
+                if (this.y < 400) { this.y += this.vertical; }
                 break;
         }
     }
