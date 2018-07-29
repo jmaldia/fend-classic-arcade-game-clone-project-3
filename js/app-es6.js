@@ -18,16 +18,15 @@ class Enemy {
         // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
         // all <computers className=""> </computers> className=""></computers> className=""></computers> className=""></computers>
-        if (this.x < 350) {
+        if (this.x < 400) {
             this.x += this.speed * 83 * dt;
         } else {
             this.x = 0;
-        }
+        }       
     }
 
     // Draw the enemy on the screen, required method for game
     render() {
-        console.log('test');
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 }
@@ -58,12 +57,18 @@ class Player {
             setTimeout(() => { alert('Congrats! You won!') }, 20);
             setTimeout(() => { this.reset() }, 15);
         }
-        
+
         // When player collides with an enemy it resets
-        if (false) {
-            setTimeout(() => { this.reset() }, 100);
-        }
-    }
+        allEnemies.forEach((enemy) => {
+            let enemyHead = enemy.x + 75;
+            let enemyTail = enemy.x - 75;
+
+            if ((this.x >= enemyTail && this.x <= enemyHead) && (this.y - 9 === enemy.y || this.y - 11 === enemy.y || this.y - 13 === enemy.y)) {
+                setTimeout(() => { alert('Sorry, You lost!') }, 20);
+                setTimeout(() => { this.reset() }, 15);
+            }
+        });                  
+    }   
 
     // Helper method to set the player back to the original position
     reset() {
@@ -96,9 +101,12 @@ class Player {
 // Place the player object in a variable called player
 let player = new Player();
 let enemyOne = new Enemy(1, 0, 60);
-let enemyTwo = new Enemy(2, 0, 145);
-let enemyThree = new Enemy(3, 0, 230);
-let allEnemies = [enemyOne, enemyTwo, enemyThree];
+let enemyTwo = new Enemy(1.25, 0, 60);
+let enemyThree = new Enemy(1.75, 0, 60);
+let enemyFour = new Enemy(.75, 0, 145);
+let enemyFive = new Enemy(2.1, 0, 145);
+let enemySix = new Enemy(2, 0, 230);
+let allEnemies = [enemyOne, enemyThree, enemyFour, enemyFive, enemySix];
 
 
 // This listens for key presses and sends the keys to your

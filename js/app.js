@@ -30,7 +30,7 @@ var Enemy = function () {
             // You should multiply any movement by the dt parameter
             // which will ensure the game runs at the same speed for
             // all <computers className=""> </computers> className=""></computers> className=""></computers> className=""></computers>
-            if (this.x < 350) {
+            if (this.x < 400) {
                 this.x += this.speed * 83 * dt;
             } else {
                 this.x = 0;
@@ -42,7 +42,6 @@ var Enemy = function () {
     }, {
         key: 'render',
         value: function render() {
-            console.log('test');
             ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
         }
     }]);
@@ -92,11 +91,19 @@ var Player = function () {
             }
 
             // When player collides with an enemy it resets
-            if (false) {
-                setTimeout(function () {
-                    _this.reset();
-                }, 100);
-            }
+            allEnemies.forEach(function (enemy) {
+                var enemyHead = enemy.x + 75;
+                var enemyTail = enemy.x - 75;
+
+                if (_this.x >= enemyTail && _this.x <= enemyHead && (_this.y - 9 === enemy.y || _this.y - 11 === enemy.y || _this.y - 13 === enemy.y)) {
+                    setTimeout(function () {
+                        alert('Sorry, You lost!');
+                    }, 20);
+                    setTimeout(function () {
+                        _this.reset();
+                    }, 15);
+                }
+            });
         }
 
         // Helper method to set the player back to the original position
@@ -148,9 +155,12 @@ var Player = function () {
 
 var player = new Player();
 var enemyOne = new Enemy(1, 0, 60);
-var enemyTwo = new Enemy(2, 0, 145);
-var enemyThree = new Enemy(3, 0, 230);
-var allEnemies = [enemyOne, enemyTwo, enemyThree];
+var enemyTwo = new Enemy(1.25, 0, 60);
+var enemyThree = new Enemy(1.75, 0, 60);
+var enemyFour = new Enemy(.75, 0, 145);
+var enemyFive = new Enemy(2.1, 0, 145);
+var enemySix = new Enemy(2, 0, 230);
+var allEnemies = [enemyOne, enemyThree, enemyFour, enemyFive, enemySix];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
