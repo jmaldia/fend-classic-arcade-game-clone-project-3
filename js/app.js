@@ -26,11 +26,16 @@ var Enemy = function () {
 
     _createClass(Enemy, [{
         key: 'update',
-        value: function update(dt) {}
-        // You should multiply any movement by the dt parameter
-        // which will ensure the game runs at the same speed for
-        // all computers.
-
+        value: function update(dt) {
+            // You should multiply any movement by the dt parameter
+            // which will ensure the game runs at the same speed for
+            // all <computers className=""> </computers> className=""></computers> className=""></computers> className=""></computers>
+            if (this.x < 350) {
+                this.x += this.speed * 83 * dt;
+            } else {
+                this.x = 0;
+            }
+        }
 
         // Draw the enemy on the screen, required method for game
 
@@ -78,6 +83,16 @@ var Player = function () {
 
             // Go back to initial position when the player reaches the water
             if (this.y <= 1) {
+                setTimeout(function () {
+                    alert('Congrats! You won!');
+                }, 20);
+                setTimeout(function () {
+                    _this.reset();
+                }, 15);
+            }
+
+            // When player collides with an enemy it resets
+            if (false) {
                 setTimeout(function () {
                     _this.reset();
                 }, 100);
@@ -132,9 +147,9 @@ var Player = function () {
 
 
 var player = new Player();
-var enemyOne = new Enemy(75, 0, 60);
-var enemyTwo = new Enemy(150, 0, 145);
-var enemyThree = new Enemy(250, 0, 230);
+var enemyOne = new Enemy(1, 0, 60);
+var enemyTwo = new Enemy(2, 0, 145);
+var enemyThree = new Enemy(3, 0, 230);
 var allEnemies = [enemyOne, enemyTwo, enemyThree];
 
 // This listens for key presses and sends the keys to your

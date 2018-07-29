@@ -17,7 +17,12 @@ class Enemy {
     update(dt) {
         // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
-        // all computers.
+        // all <computers className=""> </computers> className=""></computers> className=""></computers> className=""></computers>
+        if (this.x < 350) {
+            this.x += this.speed * 83 * dt;
+        } else {
+            this.x = 0;
+        }
     }
 
     // Draw the enemy on the screen, required method for game
@@ -50,9 +55,14 @@ class Player {
     update() {
         // Go back to initial position when the player reaches the water
         if (this.y <= 1) {
-            setTimeout(() => { this.reset() }, 100);
+            setTimeout(() => { alert('Congrats! You won!') }, 20);
+            setTimeout(() => { this.reset() }, 15);
         }
         
+        // When player collides with an enemy it resets
+        if (false) {
+            setTimeout(() => { this.reset() }, 100);
+        }
     }
 
     // Helper method to set the player back to the original position
@@ -85,9 +95,9 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let player = new Player();
-let enemyOne = new Enemy(75, 0, 60);
-let enemyTwo = new Enemy(150, 0, 145);
-let enemyThree = new Enemy(250, 0, 230);
+let enemyOne = new Enemy(1, 0, 60);
+let enemyTwo = new Enemy(2, 0, 145);
+let enemyThree = new Enemy(3, 0, 230);
 let allEnemies = [enemyOne, enemyTwo, enemyThree];
 
 
