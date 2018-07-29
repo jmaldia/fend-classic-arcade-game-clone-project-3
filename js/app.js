@@ -63,27 +63,38 @@ var Player = function () {
         this.vertical = 83;
     }
 
+    // Draws the player on the board
+
+
     _createClass(Player, [{
+        key: 'render',
+        value: function render() {
+            ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        }
+    }, {
         key: 'update',
         value: function update() {
+            var _this = this;
+
             // Go back to initial position when the player reaches the water
-            // TODO: Need work
-            if (this.x <= -20) {
-                this.reset();
-                this.render();
+            if (this.y <= 1) {
+                setTimeout(function () {
+                    _this.reset();
+                }, 100);
             }
         }
+
+        // Helper method to set the player back to the original position
+
     }, {
         key: 'reset',
         value: function reset() {
             this.x = 200;
             this.y = 405;
         }
-    }, {
-        key: 'render',
-        value: function render() {
-            ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-        }
+
+        // Moves the player left, right, up, or down
+
     }, {
         key: 'handleInput',
         value: function handleInput(input) {

@@ -41,26 +41,27 @@ class Player {
         this.horizontal = 101;
         this.vertical = 83;
     }
+    
+    // Draws the player on the board
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
 
     update() {
         // Go back to initial position when the player reaches the water
-        // TODO: Need work
-        if (this.x <= -20) {
-            this.reset();
-            this.render();
+        if (this.y <= 1) {
+            setTimeout(() => { this.reset() }, 100);
         }
         
     }
 
+    // Helper method to set the player back to the original position
     reset() {
         this.x = 200;
         this.y = 405;
     }
 
-    render() {
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
-
+    // Moves the player left, right, up, or down
     handleInput(input) {
         switch(input) {
             case 'left':
