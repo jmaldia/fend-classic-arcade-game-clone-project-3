@@ -25,7 +25,7 @@ Project 3 for the Udacity Front End Nanodegree program. The project recreates th
 - Babel
 
 *** 
-NOTE: For this project, I used babel to transpile the code. I placed all unnecessary files on .gitignore. However, I left the es6 file (called app-es6.js) that was transpiled to es5 (app.js). 
+NOTE: For this project, I used babel to transpile the code. I placed all unnecessary files on .gitignore. However, I left the es6 file (called app-es6.js) that was transpiled to es5 (app.js). I wrote the code in ES6 and transpiled using babel.
 
 The game will run even without babel installed on your Machine. 
 *** 
