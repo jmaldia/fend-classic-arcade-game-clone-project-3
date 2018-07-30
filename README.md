@@ -22,12 +22,20 @@ Project 3 for the Udacity Front End Nanodegree program. The project recreates th
 - CSS
 - JavaScript
 - jQuery
+- Babel
+
+*** 
+NOTE: For this project, I used babel to transpile the code. I placed all unnecessary files on .gitignore. However, I left the es6 file (called app-es6.js) that was transpiled to es5 (app.js). 
+
+The game will run even without babel installed on your Machine. 
+*** 
 
 ### How To Play The Game
-- 
-- 
-- 
-- 
+[Demo here](https://jmaldia.github.io/fend-classic-arcade-game-clone-project-3/)
+- Move the character up, down, left, or right
+- Avoid the bugs
+- If you get hit, you start over
+- If you make it to the water, you win!
 
 ### Screenshot
-![Alt text](https:// "Classic Arcade Game Clone")
+![Alt text](https://dha4w82d62smt.cloudfront.net/items/261n3K1t21123f3b2I1N/Image%202018-07-29%20at%209.49.18%20PM.png?X-CloudApp-Visitor-Id=c87b977d950287ae686683b882331041&v=cdc4d814 "Classic Arcade Game Clone")

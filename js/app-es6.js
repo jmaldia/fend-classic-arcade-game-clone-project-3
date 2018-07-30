@@ -64,7 +64,7 @@ class Player {
             let enemyTail = enemy.x - 75;
 
             if ((this.x >= enemyTail && this.x <= enemyHead) && (this.y - 9 === enemy.y || this.y - 11 === enemy.y || this.y - 13 === enemy.y)) {
-                setTimeout(() => { alert('Sorry, You lost!') }, 20);
+                // setTimeout(() => { alert('Sorry, You lost!') }, 20);
                 setTimeout(() => { this.reset() }, 15);
             }
         });                  

@@ -96,9 +96,7 @@ var Player = function () {
                 var enemyTail = enemy.x - 75;
 
                 if (_this.x >= enemyTail && _this.x <= enemyHead && (_this.y - 9 === enemy.y || _this.y - 11 === enemy.y || _this.y - 13 === enemy.y)) {
-                    setTimeout(function () {
-                        alert('Sorry, You lost!');
-                    }, 20);
+                    // setTimeout(() => { alert('Sorry, You lost!') }, 20);
                     setTimeout(function () {
                         _this.reset();
                     }, 15);
