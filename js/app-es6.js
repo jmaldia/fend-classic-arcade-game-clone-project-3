@@ -1,6 +1,6 @@
 // Enemies our player must avoid
 class Enemy {
-    constructor(speed, x, y) {
+    constructor(x, y) {
         // Variables applied to each of our instances go here,
         // we've provided one for you to get started
 
@@ -9,7 +9,7 @@ class Enemy {
         this.sprite = 'images/enemy-bug.png';
         this.x = x;
         this.y = y;
-        this.speed = speed;
+        this.speed = Math.random(3);
     }
 
     // Update the enemy's position, required method for game
@@ -100,12 +100,12 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let player = new Player();
-let enemyOne = new Enemy(1, 0, 60);
-let enemyTwo = new Enemy(1.25, 0, 60);
-let enemyThree = new Enemy(1.75, 0, 60);
-let enemyFour = new Enemy(.75, 0, 145);
-let enemyFive = new Enemy(2.1, 0, 145);
-let enemySix = new Enemy(2, 0, 230);
+let enemyOne = new Enemy(0, 60);
+let enemyTwo = new Enemy(0, 60);
+let enemyThree = new Enemy(0, 60);
+let enemyFour = new Enemy(0, 145);
+let enemyFive = new Enemy(0, 145);
+let enemySix = new Enemy(0, 230);
 let allEnemies = [enemyOne, enemyThree, enemyFour, enemyFive, enemySix];
 
 
